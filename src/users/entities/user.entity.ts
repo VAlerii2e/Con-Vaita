@@ -1,7 +1,5 @@
 import { Exclude } from "class-transformer";
 import { Column, Entity, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
-import { LoyalityCardsService } from "../../loyality-cards/loyality-cards.service";
-import { LoyalityCard } from "../../loyality-cards/entities/loyality-card.entity";
 import { Bank } from "../../banks/entities/bank.entity";
 
 @Entity()
@@ -23,6 +21,6 @@ export class User
     @Column({nullable:false, type:"varchar", default: ""})
     public phoneNumber:string; 
 
-    @OneToMany(() => Bank, (bank: Bank) => bank.owner)
-    public bank: Bank[];
+    @OneToMany(() => Bank, (bank: Bank) => bank.user)
+    public banks: Bank[];
 }

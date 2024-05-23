@@ -22,13 +22,12 @@ export class LoyalityCard
     private updatedAt:string;
 
     @Column()
-    private owner: User;
+    private owner: string;
     
     @OneToOne(() => Bank)
     @JoinColumn()
     public bank: Bank;
 
-   // запитати стосовно  private and public
-
+   
 }
 //export default LoyalityCard;

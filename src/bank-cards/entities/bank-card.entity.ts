@@ -1,6 +1,7 @@
+import { Bank } from "../../banks/entities/bank.entity";
 import { User } from "../../users/entities/user.entity";
 
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class BankCard 
@@ -20,6 +21,8 @@ export class BankCard
     @Column()
     public owner: string;    
     
-    
+    @ManyToMany(() => Bank)
+    @JoinTable()
+    public banks: Bank[];
 }
 

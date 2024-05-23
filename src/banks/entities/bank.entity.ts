@@ -15,6 +15,6 @@ export class Bank {
     @Column()
     private createdAt:string;
 
-    @ManyToOne(() => User, (author: User) => author.bank)
-    public owner:string
+    @ManyToOne(() => User, (user: User) => user.banks)
+    public user: User;
 }
